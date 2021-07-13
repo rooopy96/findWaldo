@@ -1,0 +1,118 @@
+:root {
+  /* color */
+  --color-bg: #303952;
+  --color-blue: #019cdd;
+  --color-white: #f5f6fa;
+  --color-red: #ee2e24;
+  --color-popup-bg: rgba(1, 1, 1, 0.8);
+
+  /* size */
+  --size-startBtn: 100px;
+  --size-startMessage: 50px;
+  --size-waldo-height: 70px;
+  --size-waldo-width: 40px;
+  --size-timer: 24px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  width: 100%;
+  height: 100vh;
+}
+
+.game {
+  height: 90%;
+  width: 90%;
+  background-color: #596275;
+  margin: auto;
+  margin-top: 4%;
+  position: relative;
+}
+
+.game__start {
+  background: url(img/start.jpeg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.game__start__btn {
+  background-color: transparent;
+  color: var(--color-blue);
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  font-size: var(--size-startBtn);
+  cursor: pointer;
+}
+
+.game__start__message {
+  color: var(--color-red);
+  font-weight: 800;
+  font-size: var(--size-startMessage);
+}
+
+.game__play {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  background: url("img/bg/1.jpeg");
+  background-size: cover;
+}
+
+.game__play__waldo {
+  position: absolute;
+  height: var(--size-waldo-height);
+  width: var(--size-waldo-width);
+}
+
+.game__info {
+  position: fixed;
+  background-color: var(--color-white);
+  top: 0px;
+  right: 0px;
+}
+
+.game__info__timer {
+  font-size: var(--size-timer);
+}
+
+.game__end {
+  position: absolute;
+  align-items: center;
+  background-color: var(--color-popup-bg);
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.game__end__refresh {
+  color: var(--color-white);
+  display: block;
+  font-size: var(--size-startBtn);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.game__end__message {
+  color: var(--color-white);
+  text-align: center;
+  font-size: var(--size-startMessage);
+}
