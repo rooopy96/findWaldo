@@ -36,6 +36,7 @@ replayBtn.addEventListener("click", () => {
 })
 
 gameQuit.addEventListener("click", () => {
+	MAP_NUMBER = 1;
 	hideWinPupUp();
 	hideFieldPage();
 	showStartPage();

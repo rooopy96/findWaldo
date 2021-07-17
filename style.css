@@ -1,6 +1,6 @@
 :root {
   /* color */
-  --color-bg: #303952;
+  --color-bg: black;
   --color-blue: #019cdd;
   --color-white: #f5f6fa;
   --color-red: #ee2e24;
@@ -50,6 +50,11 @@ body {
   cursor: pointer;
   border: none;
   transform: translateY(-150px);
+  transition: all 100ms ease-in;
+}
+
+.game__start__btn:hover {
+  transform: scale(1.1) translateY(-150px);
 }
 
 .game__field {
@@ -103,6 +108,12 @@ body {
 
 .game__win__message div i {
   cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.game__win__message div i:hover {
+  transform: scale(1.1);
+  color: var(--color-red);
 }
 
 .game__lose {
@@ -140,4 +151,9 @@ body {
 
 .game__lose div i {
   cursor: pointer;
+}
+
+.game__lose div i:hover {
+  color: var(--color-blue);
+  transform: scale(1.1);
 }
