@@ -5,6 +5,7 @@ const gameField = document.querySelector(".game__field");
 const waldo = document.querySelector(".game__field__waldo");
 const winPopUp = document.querySelector(".game__win");
 const losePopUp = document.querySelector(".game__lose");
+const gameTimer = document.querySelector(".game__info__timer");
 
 const startBtn = document.querySelector(".game__start__btn");
 const replayBtn = document.querySelector(".game__replay");
@@ -12,7 +13,8 @@ const nextBtn = document.querySelector(".game__next");
 const gameQuit = document.querySelector(".game__quit");
 
 let MAP_NUMBER = 1;
-const GAME_DURATION = 10;
+let timer = undefined;
+const GAME_DURATION = 20;
 
 const waldoPosition = [
 	{mapNumber: 1, x: 830, y: 141},
@@ -40,6 +42,7 @@ gameQuit.addEventListener("click", () => {
 	hideWinPupUp();
 	hideFieldPage();
 	showStartPage();
+	hideTimer();
 })
 
 gameField.addEventListener("click", (event) => {
@@ -53,14 +56,18 @@ gameField.addEventListener("click", (event) => {
 function startGame() {
 	hideStartPage();
 	showFieldPage();
+	showTimer();
+	startTimer();
 }
 
 function gameWin() {
 	showWinPopUp();
+	stopTimer();
 }
 
 function gameLose() {
 	showLosePopUp();
+	stopTimer();
 }
 
 function showStartPage() {
@@ -111,3 +118,36 @@ function makeWaldo(mapNum) {
 	}
 }
 
+function startTimer() {
+	let sec = GAME_DURATION;
+	addTextToTimer(sec);
+	timer = setInterval(() => {
+		if(sec <= 0) {
+			stopTimer();
+		}
+		addTextToTimer(--sec);
+	}, 1000)
+}
+
+function showTimer() {
+	gameTimer.style.visibility = "visible";
+}
+
+function hideTimer() {
+	gameTimer.style.visibility = "hidden";
+}
+
+function stopTimer() {
+	clearInterval(timer);
+}
+
+function addTextToTimer(sec) {
+	const minute = Math.floor(sec / 60);
+	const second = sec % 60;
+
+	if(second > 9) {
+		gameTimer.textContent = `0${minute}:${second}`;
+	} else {
+		gameTimer.textContent = `0${minute}:0${second}`;
+	}
+}

@@ -30,8 +30,25 @@ body {
   width: 1000px;
   background-color: #596275;
   margin: auto;
-  margin-top: 4%;
   position: relative;
+}
+
+.game__info {
+  background-color: black;
+  margin: 10px 30px 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.game__info__message {
+  font-size: 24px;
+}
+
+.game__info__timer {
+  font-size: 30px;
+  visibility: hidden;
 }
 
 .game__start {
