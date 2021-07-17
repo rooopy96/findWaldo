@@ -14,9 +14,9 @@ const gameQuit = document.querySelector(".game__quit");
 
 class Sound {
 	constructor() {
-		this.bg = new Audio("../sound/bg.mp3");
-		this.miss = new Audio("../sound/bug_pull.mp3");
-		this.win = new Audio("../sound/game_win.mp3");
+		this.bg = new Audio("https://rooopy96.github.io/findWaldo/sound/bg.mp3");
+		this.miss = new Audio("https://rooopy96.github.io/findWaldo/sound/bug_pull.mp3");
+		this.win = new Audio("https://rooopy96.github.io/findWaldo/sound/game_win.mp3");
 	}
 
 	startBgSound() {
