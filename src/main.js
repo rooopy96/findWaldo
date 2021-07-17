@@ -1,4 +1,5 @@
 "use strict";
+import Sound from "./sound.js";
 
 const initialPage = document.querySelector(".game__start");
 const gameField = document.querySelector(".game__field");
@@ -12,9 +13,11 @@ const replayBtn = document.querySelector(".game__replay");
 const nextBtn = document.querySelector(".game__next");
 const gameQuit = document.querySelector(".game__quit");
 
+const sound = new Sound();
+
 let MAP_NUMBER = 1;
 let timer = undefined;
-const GAME_DURATION = 20;
+const GAME_DURATION = 3;
 
 const waldoPosition = [
 	{mapNumber: 1, x: 830, y: 141},
@@ -58,16 +61,21 @@ function startGame() {
 	showFieldPage();
 	showTimer();
 	startTimer();
+	sound.startBgSound();
 }
 
 function gameWin() {
 	showWinPopUp();
 	stopTimer();
+	sound.stopBgSound();
+	sound.win.play();
 }
 
 function gameLose() {
 	showLosePopUp();
 	stopTimer();
+	sound.stopBgSound();
+	sound.miss.play();
 }
 
 function showStartPage() {
@@ -122,8 +130,9 @@ function startTimer() {
 	let sec = GAME_DURATION;
 	addTextToTimer(sec);
 	timer = setInterval(() => {
-		if(sec <= 0) {
+		if(sec <= 1) {
 			stopTimer();
+			gameLose();
 		}
 		addTextToTimer(--sec);
 	}, 1000)
