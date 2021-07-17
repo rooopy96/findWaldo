@@ -17,7 +17,7 @@ const sound = new Sound();
 
 let MAP_NUMBER = 1;
 let timer = undefined;
-const GAME_DURATION = 3;
+const GAME_DURATION = 30;
 
 const waldoPosition = [
 	{mapNumber: 1, x: 830, y: 141},
