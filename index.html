@@ -5,29 +5,41 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"><link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
 	<script src="src/main.js" defer></script>
 	<title>Where's Waldo</title>
 </head>
 <body>
 	<section class="game">
 		<div class="game__start">
-			<button class="game__start__btn">
-				<i class="fas fa-play"></i>
-			</button>
-			<img src="img/startMsg.png" alt="start">
+				<img class="game__start__btn" src="img/startMsg.png" alt="start">
 		</div>
-		<div class="game__play">
-			<img class="game__play__waldo" src="img/waldo1.png" alt="waldo">
+		<div class="game__field">
+			<div class="game__field__waldo waldo"></div>
+		</div>
+		<div class="game__win">
+			<div class="game__win__message">
+				<span>You find waldo😎</span>
+				<span>Do you want next level?</span>
+				<div>
+					<i class="fas fa-forward game__next"></i> /
+					<i class="fas fa-times game__quit"></i>
+				</div>
+			</div>
+			<img class src="img/waldo1.png" alt="waldo">
+		</div>
+		<div class="game__lose">
+			<span class="game__lose__message">You lose 😑</span>
+			<span>Do you want replay?</span>
+			<div>
+				<i class="fas fa-redo game__replay"></i>
+			</div>
 		</div>
 		<div class="game__info">
 			<div class="game__info__timer">00:00</div>
-		</div>
-		<div class="game__end">
-			<button class="game__end__refresh">
-				<i class="fas fa-redo"></i>
-			</button>
-			<span class="game__end__message">Replay??</span>
 		</div>
 	</section>
 </body>

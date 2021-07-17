@@ -9,8 +9,8 @@
   /* size */
   --size-startBtn: 100px;
   --size-startMessage: 50px;
-  --size-waldo-height: 70px;
-  --size-waldo-width: 40px;
+  --size-waldo-height: 30px;
+  --size-waldo-width: 30px;
   --size-timer: 24px;
 }
 
@@ -26,8 +26,8 @@ body {
 }
 
 .game {
-  height: 90%;
-  width: 90%;
+  height: 700px;
+  width: 1000px;
   background-color: #596275;
   margin: auto;
   margin-top: 4%;
@@ -41,78 +41,103 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  visibility: hidden;
 }
 
 .game__start__btn {
   background-color: transparent;
-  color: var(--color-blue);
-  outline: none;
-  border: none;
-  border-radius: 50%;
-  font-size: var(--size-startBtn);
   cursor: pointer;
+  border: none;
+  transform: translateY(-150px);
 }
 
-.game__start__message {
-  color: var(--color-red);
-  font-weight: 800;
-  font-size: var(--size-startMessage);
-}
-
-.game__play {
+.game__field {
   position: absolute;
-  width: 100%;
   height: 100%;
-  transform: translateY(-100%);
-  background: url("img/bg/1.jpeg");
-  background-size: cover;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  visibility: hidden;
 }
 
-.game__play__waldo {
+.game__field__waldo {
   position: absolute;
+  cursor: pointer;
   height: var(--size-waldo-height);
   width: var(--size-waldo-width);
 }
 
-.game__info {
-  position: fixed;
-  background-color: var(--color-white);
-  top: 0px;
-  right: 0px;
-}
-
-.game__info__timer {
-  font-size: var(--size-timer);
-}
-
-.game__end {
+.game__win {
   position: absolute;
-  align-items: center;
-  background-color: var(--color-popup-bg);
-  top: 0;
   height: 100%;
   width: 100%;
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
   visibility: hidden;
 }
 
-.game__end__refresh {
-  color: var(--color-white);
-  display: block;
-  font-size: var(--size-startBtn);
-  background-color: transparent;
-  border: none;
+.game__win__message {
+  width: 550px;
+  height: 300px;
+  background-color: var(--color-blue);
+  border: 10px solid var(--color-red);
+  border-radius: 40px;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__win__message span:nth-child(2) {
+  font-size: 30px;
+  color: black;
+}
+
+.game__win__message div i {
   cursor: pointer;
 }
 
-.game__end__message {
+.game__lose {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  font-family: "Roboto Mono", monospace;
+}
+
+.game__lose__message {
+  font-size: 48px;
+  color: white;
+}
+
+.game__lose span:nth-child(2) {
+  font-size: 30px;
+  color: white;
+}
+
+.game__lose div {
+  font-size: 100px;
+  background-color: transparent;
   color: var(--color-white);
-  text-align: center;
-  font-size: var(--size-startMessage);
+  border: none;
+  outline: none;
+}
+
+.game__lose div i {
+  cursor: pointer;
 }
