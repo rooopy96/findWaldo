@@ -1,5 +1,4 @@
 "use strict";
-import Sound from "./sound.js";
 
 const initialPage = document.querySelector(".game__start");
 const gameField = document.querySelector(".game__field");
@@ -12,6 +11,23 @@ const startBtn = document.querySelector(".game__start__btn");
 const replayBtn = document.querySelector(".game__replay");
 const nextBtn = document.querySelector(".game__next");
 const gameQuit = document.querySelector(".game__quit");
+
+class Sound {
+	constructor() {
+		this.bg = new Audio("../sound/bg.mp3");
+		this.miss = new Audio("../sound/bug_pull.mp3");
+		this.win = new Audio("../sound/game_win.mp3");
+	}
+
+	startBgSound() {
+		this.bg.currentTime = 0;
+		this.bg.play();
+	}
+
+	stopBgSound() {
+		this.bg.pause();
+	}
+}
 
 const sound = new Sound();
 
