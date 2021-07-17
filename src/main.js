@@ -6,6 +6,8 @@ const waldo = document.querySelector(".game__field__waldo");
 const winPopUp = document.querySelector(".game__win");
 const losePopUp = document.querySelector(".game__lose");
 const gameTimer = document.querySelector(".game__info__timer");
+const endingPage = document.querySelector(".game__ending");
+const gameMessage = document.querySelector(".game__info__message");
 
 const startBtn = document.querySelector(".game__start__btn");
 const replayBtn = document.querySelector(".game__replay");
@@ -45,10 +47,15 @@ startBtn.addEventListener("click", (event) => {
 	startGame();
 });
 
+
 nextBtn.addEventListener("click", () => {
-	MAP_NUMBER++;
-	hideWinPupUp();
-	startGame();
+	if(waldoPosition.length <= MAP_NUMBER) {
+		showEndingPage()
+	} else {
+		MAP_NUMBER++;
+		hideWinPupUp();
+		startGame();
+	}
 })
 
 replayBtn.addEventListener("click", () => {
@@ -126,6 +133,13 @@ function showFieldPage() {
 
 function hideFieldPage() {
 	gameField.style.visibility = "hidden";
+}
+
+function showEndingPage() {
+	endingPage.style.visibility = "visible";
+	stopTimer();
+	sound.stopBgSound();
+	gameMessage.textContent = "월리를 전부 찾았습니다. 다음 업데이트를 기다려주세요.";
 }
 
 function makeField(mapNum) {
